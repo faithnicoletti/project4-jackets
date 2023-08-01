@@ -7,6 +7,7 @@ import NavBar from './components/NavBar/NavBar';
 import Login from './components/login/login';
 import Signup from './components/signup/signup';
 import AllJacketsPage from './AllJacketsPage';
+import CheckOutPage from './CheckOutPage';
 
 export default function App() {
   const [jackets, setJackets] = useState([])
@@ -24,9 +25,9 @@ export default function App() {
            <Route path="/" element={<AllJacketsPage />} />
            <Route exact path="/login" element={<Login />} />
            <Route path="/signin" element={<Login />} />
-           <Route path="/signup" element={<Signup />} />
+           <Route path="/sign-up" element={<Signup />} />
            <Route path="/custom" element={<Custom />} />
-           {/* <Route path="/checkout" element={<CheckOutPage />} /> */}
+           <Route path="/checkout" element={<CheckOutPage />} />
        </Routes> 
       </main>
     </Router> 

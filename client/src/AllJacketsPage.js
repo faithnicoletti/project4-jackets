@@ -51,7 +51,7 @@ export default function AllJacketsPage() {
   <>
     <h1>All Available Jackets</h1>
     <Add handleCreate={handleCreate} />
-    
+
     {jackets.map((jacket) => {
       return (
         <React.Fragment key={jacket._id}>

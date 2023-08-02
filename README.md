@@ -33,7 +33,7 @@ We encountered many challenges in implementing functional of the custom design f
 Further action is needed to complete this application for user use. 
 However, full CRUD functionality as a MERN stack application is available. 
 
-##Notes
+## Notes
 Explore the implementation of the custom denim jacket design feature to allow users to fully personalize their jackets.
 Integrate "Add to Cart" functionality for the available jackets in stock to improve user shopping experience.
 Implement Stripe integration to enable secure payment processing during checkout, allowing users to purchase items and remove them from stock.

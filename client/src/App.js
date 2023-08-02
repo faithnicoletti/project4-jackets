@@ -1,68 +1,35 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
-import Jacket from './components/jacket';
-import Add from './components/add';
-import Edit from './components/edit';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Custom from './components/custom/custom';
+import NavBar from './components/NavBar/NavBar';
+import Login from './components/login/login';
+import Signup from './components/signup/signup';
+import AllJacketsPage from './AllJacketsPage';
+import CheckOutPage from './CheckOutPage';
 
+export default function App() {
+  const [jackets, setJackets] = useState([])
 
-function App() {
-  const [jackets, setJackets] = useState([]);
-
-  const getJackets = () => {
-    axios.get('http://localhost:3000/jackets')
-    .then((response ) => setJackets(response.data), (err) => console.log(err))
-    .catch((error) => console.log(error))
-  }
-
-  const handleCreate = (createdJacket) => {
-    console.log(createdJacket)
-    axios.post('http://localhost:3000/jackets', createdJacket)
-    .then((response) => {
-      setJackets([...jackets, response.data])
+  useEffect(() => {
+    axios.get('https://project4-jackets.onrender.com')
+    .then((response) => setJackets(response.data), (err) => console.log(err));
     })
-  }
-
-  const handleEdit = (editedJacket) => {
-    axios.put('http://localhost:3000/jackets/' + editedJacket._id, editedJacket)
-    .then((response) => {
-      let newJackets = jackets.map((jacket) => {
-        return jacket._id !== editedJacket._id ? jacket : editedJacket
-      })
-      setJackets(newJackets)
-    })
-  }
-
-  const handleDelete = (deletedJacket) => {
-    axios.delete('http://localhost:3000/jackets/' + deletedJacket._id)
-    .then((response) => {
-      let newJackets = jackets.filter((jacket) => {
-        return jacket._id !== deletedJacket._id
-      })
-      setJackets(newJackets)
-    })
-  }
-
-useEffect(() => {
-  getJackets()
-}, [])
-
 
   return (
-    <>
-    <h1>All Available Jackets</h1>
-    <Add handleCreate={handleCreate} />
-    {jackets.map((jacket) => {
-      return (
-        <>
-        <Jacket jacket={jacket} />
-        <Edit jacket= {jacket} handleEdit={handleEdit}/>
-        <button onClick={() => {handleDelete(jacket)}}>Delete</button> 
-        </>
-      )
-    })}
-    </>
-  );
+      <Router>
+      <main className="App">
+          <NavBar />
+        <Routes>
+           <Route path="/" element={<AllJacketsPage />} />
+           <Route exact path="/login" element={<Login />} />
+           <Route path="/signin" element={<Login />} />
+           <Route path="/sign-up" element={<Signup />} />
+           <Route path="/custom" element={<Custom />} />
+           <Route path="/checkout" element={<CheckOutPage />} />
+       </Routes> 
+      </main>
+    </Router> 
+    );
 }
-
-export default App;

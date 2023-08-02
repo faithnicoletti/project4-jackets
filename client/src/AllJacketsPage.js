@@ -9,21 +9,21 @@ export default function AllJacketsPage() {
     const [jackets, setJackets] = useState([]);
   
     const getJackets = () => {
-      axios.get('https://project4-jackets-emmanuel.onrender.com')
+      axios.get('https://project4-jackets-emmanuel.onrender.com/jackets')
       .then((response ) => setJackets(response.data), (err) => console.log(err))
       .catch((error) => console.log(error))
     }
   
     const handleCreate = (createdJacket) => {
       console.log(createdJacket)
-      axios.post('https://project4-jackets-emmanuel.onrender.com', createdJacket)
+      axios.post('https://project4-jackets-emmanuel.onrender.com/jackets', createdJacket)
       .then((response) => {
         setJackets([...jackets, response.data])
       })
     }
   
     const handleEdit = (editedJacket) => {
-      axios.put('https://project4-jackets-emmanuel.onrender.com' + editedJacket._id, editedJacket)
+      axios.put('https://project4-jackets-emmanuel.onrender.com/jackets' + editedJacket._id, editedJacket)
       .then((response) => {
         let newJackets = jackets.map((jacket) => {
           return jacket._id !== editedJacket._id ? jacket : editedJacket
@@ -33,7 +33,7 @@ export default function AllJacketsPage() {
     }
   
     const handleDelete = (deletedJacket) => {
-      axios.delete('https://project4-jackets-emmanuel.onrender.com' + deletedJacket._id)
+      axios.delete('https://project4-jackets-emmanuel.onrender.com/jackets' + deletedJacket._id)
       .then((response) => {
         let newJackets = jackets.filter((jacket) => {
           return jacket._id !== deletedJacket._id

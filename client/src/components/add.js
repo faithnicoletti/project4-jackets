@@ -14,7 +14,7 @@ const handleSubmit = (event) => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <input type='text' placeholder='name' name='name' onChnage={handleChange} />
+                <input type='text' placeholder='name' name='name' onChange={handleChange} />
                 <br />
                 <br />
                 <input type='number' placeholder='price' name='price' onChange={handleChange} />

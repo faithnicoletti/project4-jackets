@@ -23,6 +23,12 @@ const Edit = (props) => {
                     <input type='number' name='price' value={jacket.price} onChange={handleChange} />
                     <br />
                     <br />
+                    <input type='text' name='size' value={jacket.size} onChange={handleChange} />
+                    <br />
+                    <br />
+                    <input type='text' name='description' value={jacket.description} onChange={handleChange} />
+                    <br />
+                    <br />
                     <input type='submit' />
                 </form>
             </details>

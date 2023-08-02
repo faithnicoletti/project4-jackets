@@ -5,7 +5,6 @@ import Add from './components/add';
 import Edit from './components/edit';
 import React from 'react';
 
-
 export default function AllJacketsPage() {
     const [jackets, setJackets] = useState([]);
   

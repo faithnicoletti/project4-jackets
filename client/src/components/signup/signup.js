@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios"; // Import Axios
-
 export default function Signup() {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
@@ -8,10 +7,8 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("");
   const [secretKey, setSecretKey] = useState("");
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (userType === "Admin" && secretKey !== "penny0122") {
       alert("Invalid Admin");
     } else {
@@ -37,7 +34,6 @@ export default function Signup() {
       });
     }
   };
-
   return (
     <div className="auth-wrapper">
       <div className="auth-inner">
@@ -45,22 +41,28 @@ export default function Signup() {
           <h3>Sign Up</h3>
           <div>
             Register As
-            <input
+            <div className="registerAs">
+<div className="registerAs">
+<label>User</label>
+<input
               type="radio"
               name="UserType"
               value="User"
               onChange={(e) => setUserType(e.target.value)}
             />
-            User
+</div>
+<div className="registerAs">
+            <label>Admin</label>
             <input
               type="radio"
               name="UserType"
               value="Admin"
               onChange={(e) => setUserType(e.target.value)}
             />
-            Admin
-          </div>
-          {userType === "Admin" ? (
+</div>
+            
+</div>
+          </div>{userType === "Admin" ? (
             <div className="mb-3">
               <label>Secret Key</label>
               <input
@@ -71,7 +73,6 @@ export default function Signup() {
               />
             </div>
           ) : null}
-
           <div className="mb-3">
             <label>First name</label>
             <input
@@ -81,7 +82,6 @@ export default function Signup() {
               onChange={(e) => setFname(e.target.value)}
             />
           </div>
-
           <div className="mb-3">
             <label>Last name</label>
             <input
@@ -91,7 +91,6 @@ export default function Signup() {
               onChange={(e) => setLname(e.target.value)}
             />
           </div>
-
           <div className="mb-3">
             <label>Email address</label>
             <input
@@ -101,7 +100,6 @@ export default function Signup() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-
           <div className="mb-3">
             <label>Password</label>
             <input
@@ -111,7 +109,6 @@ export default function Signup() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-
           <div className="d-grid">
             <button type="submit" className="btn btn-primary">
               Sign Up

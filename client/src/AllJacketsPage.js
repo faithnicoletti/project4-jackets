@@ -9,21 +9,21 @@ export default function AllJacketsPage() {
     const [jackets, setJackets] = useState([]);
   
     const getJackets = () => {
-      axios.get('http://localhost:3000/jackets')
+      axios.get('http://localhost:3001/jackets')
       .then((response ) => setJackets(response.data), (err) => console.log(err))
       .catch((error) => console.log(error))
     }
   
     const handleCreate = (createdJacket) => {
       console.log(createdJacket)
-      axios.post('http://localhost:3000/jackets', createdJacket)
+      axios.post('http://localhost:3001/jackets', createdJacket)
       .then((response) => {
         setJackets([...jackets, response.data])
       })
     }
   
     const handleEdit = (editedJacket) => {
-      axios.put('http://localhost:3000/jackets/' + editedJacket._id, editedJacket)
+      axios.put('http://localhost:3001/jackets/' + editedJacket._id, editedJacket)
       .then((response) => {
         let newJackets = jackets.map((jacket) => {
           return jacket._id !== editedJacket._id ? jacket : editedJacket
@@ -33,7 +33,7 @@ export default function AllJacketsPage() {
     }
   
     const handleDelete = (deletedJacket) => {
-      axios.delete('http://localhost:3000/jackets/' + deletedJacket._id)
+      axios.delete('http://localhost:3001/jackets/' + deletedJacket._id)
       .then((response) => {
         let newJackets = jackets.filter((jacket) => {
           return jacket._id !== deletedJacket._id

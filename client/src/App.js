@@ -13,7 +13,7 @@ export default function App() {
   const [jackets, setJackets] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:3001/jackets')
+    axios.get('https://project4-jackets.onrender.com')
     .then((response) => setJackets(response.data), (err) => console.log(err));
     })
 

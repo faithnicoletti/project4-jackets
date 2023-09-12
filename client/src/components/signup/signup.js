@@ -78,7 +78,7 @@ export default function Signup() {
             <input
               type="text"
               className="form-control"
-              placeholder="First name"
+              placeholder="Enter first name"
               onChange={(e) => setFname(e.target.value)}
             />
           </div>
@@ -87,7 +87,7 @@ export default function Signup() {
             <input
               type="text"
               className="form-control"
-              placeholder="Last name"
+              placeholder="Enter last name"
               onChange={(e) => setLname(e.target.value)}
             />
           </div>
@@ -115,7 +115,7 @@ export default function Signup() {
             </button>
           </div>
           <p className="forgot-password text-right">
-            Already registered <a href="/sign-in">sign in?</a>
+            Already registered <a href="/sign-in" class="signin-link">sign in here.</a>
           </p>
         </form>
       </div>

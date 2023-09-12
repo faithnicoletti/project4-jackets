@@ -11,7 +11,7 @@ export default function NavBar() {
             &nbsp; | &nbsp;
             <Link to="/checkout">Checkout</Link>
             &nbsp; | &nbsp;
-            <Link to="/login">Login</Link>
+            <Link to="/login">Have an account?</Link>
             &nbsp; | &nbsp;
             <Link to="/sign-up">Sign-up</Link>
         </nav>
